@@ -1,19 +1,28 @@
-package com.yourname.vetclinic;
-
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("🐾 Welcome to VetClinic Management System!");
-        System.out.println("This project is a simple Java application that demonstrates a basic clinic management setup.");
-        System.out.println();
-        System.out.println("System Features:");
-        System.out.println("- Register pets and their owners");
-        System.out.println("- Schedule veterinarian appointments");
-        System.out.println("- Store medical history and treatment notes");
-        System.out.println("- Manage clinic staff and available services");
-        System.out.println("- Display daily schedule summaries");
+        ArrayList<owner> owner = new ArrayList<>();
 
-        System.out.println();
-        System.out.println("System initialization complete. More features will be added soon!");
+        pet pet1 = new pet("Ross", 3, "dog", "male", "temperature");
+        owner owner1 = new owner(1456453, "Temirlan", "777777", "EXPO");
+
+        veterenarian vet = new veterenarian("Birzhan Rukhanov", "666666", 10);
+
+
+        treatment treatment = new treatment("Paracetamol", 3000, 2028);
+        vaccination vaccination = new vaccination("Calicivirus", "Rabies" , 2025 ,2027);
+
+
+        appointment appointment = new appointment(pet1, vet, true);
+
+        owner.add(owner1);
+
+        System.out.println(owner1);
+        System.out.println(vet);
+        System.out.println(treatment);
+        System.out.println(vaccination);
+        System.out.println(appointment);
     }
+
 }
