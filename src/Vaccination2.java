@@ -1,10 +1,10 @@
-public class Vaccination {
+public class Vaccination2 {
     private String vaccineName;
     private String disease;
     private int vaccinationYear;
     private int validUntilYear;
 
-    public Vaccination(String vaccineName, String disease, int vaccinationYear, int validUntilYear) {
+    public Vaccination2(String vaccineName, String disease, int vaccinationYear, int validUntilYear) {
         this.vaccineName = vaccineName;
         this.disease = disease;
         this.vaccinationYear = vaccinationYear;
@@ -45,7 +45,7 @@ public class Vaccination {
 
     @Override
     public String toString() {
-        return "Vaccination{" +
+        return "Vaccination2{" +
                 "vaccineName='" + vaccineName + '\'' +
                 ", disease='" + disease + '\'' +
                 ", vaccinationYear=" + vaccinationYear +

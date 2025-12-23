@@ -1,27 +1,27 @@
 public class Appointment {
-    private Pet pet;
-    private Veterenarian veterenarian;
+    private Pet2 pet;
+    private Veterenarian2 veterenarian;
     private boolean confirmed;
 
-    public Appointment(Pet pet, Veterenarian veterenarian, boolean confirmed) {
+    public Appointment(Pet2 pet, Veterenarian2 veterenarian, boolean confirmed) {
         this.pet = pet;
         this.veterenarian = veterenarian;
         this.confirmed = confirmed;
     }
 
-    public Pet getPet() {
+    public Pet2 getPet() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    public void setPet(Pet2 pet) {
         this.pet = pet;
     }
 
-    public Veterenarian getVeterenarian() {
+    public Veterenarian2 getVeterenarian() {
         return veterenarian;
     }
 
-    public void setVeterenarian(Veterenarian veterenarian) {
+    public void setVeterenarian(Veterenarian2 veterenarian) {
         this.veterenarian = veterenarian;
     }
 
@@ -36,8 +36,8 @@ public class Appointment {
     @Override
     public String toString() {
         return "Appointment{" +
-                "Pet=" + pet +
-                ", Veterenarian=" + veterenarian +
+                "Pet2=" + pet +
+                ", Veterenarian2=" + veterenarian +
                 ", confirmed=" + confirmed +
                 '}';
     }

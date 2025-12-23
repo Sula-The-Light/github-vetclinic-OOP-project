@@ -1,9 +1,9 @@
-public class Veterenarian {
+public class Veterenarian2 {
     private String name;
     private String phoneNumber;
     private int experienceYears;
 
-    public Veterenarian(String name, String phoneNumber, int experienceYears) {
+    public Veterenarian2(String name, String phoneNumber, int experienceYears) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.experienceYears = experienceYears;
@@ -35,7 +35,7 @@ public class Veterenarian {
 
     @Override
     public String toString() {
-        return "Veterenarian{" +
+        return "Veterenarian2{" +
                 "name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", experienceYears=" + experienceYears +
