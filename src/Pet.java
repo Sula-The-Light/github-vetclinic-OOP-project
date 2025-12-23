@@ -1,11 +1,11 @@
-public class pet {
+public class Pet {
     private String nickname;
     private int age;
     private String type;
     private String sex;
     private String symptom;
 
-    public pet(String nickname, int age, String type, String sex, String symptom) {
+    public Pet(String nickname, int age, String type, String sex, String symptom) {
         this.nickname = nickname;
         this.age = age;
         this.type = type;
@@ -55,7 +55,7 @@ public class pet {
 
     @Override
     public String toString() {
-        return "pet{" +
+        return "Pet{" +
                 "nickname='" + nickname + '\'' +
                 ", age=" + age +
                 ", type='" + type + '\'' +

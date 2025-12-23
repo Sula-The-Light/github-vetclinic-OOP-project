@@ -1,10 +1,9 @@
-import java.util.ArrayList;
-public class veterenarian {
+public class Veterenarian {
     private String name;
     private String phoneNumber;
     private int experienceYears;
 
-    public veterenarian(String name, String phoneNumber, int experienceYears) {
+    public Veterenarian(String name, String phoneNumber, int experienceYears) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.experienceYears = experienceYears;
@@ -36,7 +35,7 @@ public class veterenarian {
 
     @Override
     public String toString() {
-        return "veterenarian{" +
+        return "Veterenarian{" +
                 "name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", experienceYears=" + experienceYears +

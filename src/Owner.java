@@ -1,10 +1,10 @@
-public class owner {
+public class Owner {
     private long id;
     private String name;
     private String phoneNumber;
     private String  address;
 
-    public owner(long id, String name, String phoneNumber, String address) {
+    public Owner(long id, String name, String phoneNumber, String address) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -45,7 +45,7 @@ public class owner {
 
     @Override
     public String toString() {
-        return "owner{" +
+        return "Owner{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +

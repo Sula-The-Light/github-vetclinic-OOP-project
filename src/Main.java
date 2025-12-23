@@ -1,28 +1,16 @@
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
+        Pet pet1 = new Pet("Ross", 3, "dog", "male", "temperature");
+        Owner owner1 = new Owner(1456453, "Temirlan", "777777", "EXPO");
+        Veterenarian vet = new Veterenarian("Birzhan Rukhanov", "666666", 10);
+        Treatment treatment = new Treatment("Paracetamol", 3000, 2028);
+        Vaccination vaccination = new Vaccination("Calicivirus", "Rabies" , 2025 ,2027);
+        Appointment appointment = new Appointment(pet1, vet, true);
 
-        ArrayList<owner> owner = new ArrayList<>();
+        Order order1 = new Order(owner1 , pet1 , vet , treatment , vaccination , appointment);
 
-        pet pet1 = new pet("Ross", 3, "dog", "male", "temperature");
-        owner owner1 = new owner(1456453, "Temirlan", "777777", "EXPO");
-
-        veterenarian vet = new veterenarian("Birzhan Rukhanov", "666666", 10);
-
-
-        treatment treatment = new treatment("Paracetamol", 3000, 2028);
-        vaccination vaccination = new vaccination("Calicivirus", "Rabies" , 2025 ,2027);
-
-
-        appointment appointment = new appointment(pet1, vet, true);
-
-        owner.add(owner1);
-
-        System.out.println(owner1);
-        System.out.println(vet);
-        System.out.println(treatment);
-        System.out.println(vaccination);
-        System.out.println(appointment);
+        System.out.println(order1);
     }
 
 }
