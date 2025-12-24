@@ -2,12 +2,8 @@ public class Appointment {
     private Pet2 pet;
     private Veterenarian2 veterenarian;
     private boolean confirmed;
+    private String date;
 
-    public Appointment(Pet2 pet, Veterenarian2 veterenarian, boolean confirmed) {
-        this.pet = pet;
-        this.veterenarian = veterenarian;
-        this.confirmed = confirmed;
-    }
 
     public Pet2 getPet() {
         return pet;
@@ -33,12 +29,30 @@ public class Appointment {
         this.confirmed = confirmed;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Appointment(Pet2 pet1, Veterenarian2 vet, boolean b, String owaGr) {
+
+
+    }
+
     @Override
     public String toString() {
         return "Appointment{" +
-                "Pet2=" + pet +
-                ", Veterenarian2=" + veterenarian +
+                "pet=" + pet +
+                ", veterenarian=" + veterenarian +
                 ", confirmed=" + confirmed +
+                ", date='" + date + '\'' +
                 '}';
     }
 }
+
+
+
+

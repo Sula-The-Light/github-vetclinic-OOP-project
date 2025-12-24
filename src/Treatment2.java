@@ -2,7 +2,7 @@ public class Treatment2 {
     private String name;
     private double price;
     private int expiryDate;
-
+    private boolean prescriptionRequired;
     public Treatment2(String name, double price, int expiryDate) {
         this.name = name;
         this.price = price;

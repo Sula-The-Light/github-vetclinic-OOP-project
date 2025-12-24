@@ -15,6 +15,14 @@ public class Vaccination2 {
         return vaccineName;
     }
 
+    public boolean isExpired(int currentYear) {
+        return currentYear > validUntilYear;
+    }
+
+    public int getValidityPeriod() {
+        return validUntilYear - vaccinationYear;
+    }
+
     public void setVaccineName(String vaccineName) {
         this.vaccineName = vaccineName;
     }

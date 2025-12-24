@@ -17,6 +17,14 @@ public class Pet2 {
         return nickname;
     }
 
+    public boolean isAdult() {
+        return age >= 1;
+    }
+
+    public void changeSymptom(String newSymptom) {
+        this.symptom = newSymptom;
+    }
+
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
