@@ -4,6 +4,14 @@ public class Appointment {
     private boolean confirmed;
     private String date;
 
+    public boolean confirm() {
+        this.confirmed = true;
+        return confirmed;
+    }
+
+    public String getStatus() {
+        return confirmed ? "Confirmed" : "Not confirmed";
+    }
 
     public Pet2 getPet() {
         return pet;

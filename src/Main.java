@@ -13,7 +13,6 @@ public class Main {
         appointment.setConfirmed(false);
         System.out.println(appointment.isConfirmed());
 
-        System.out.println(order1.getTotalPrice());
 
     }
 

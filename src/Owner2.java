@@ -11,6 +11,15 @@ public class Owner2 {
         this.address = address;
     }
 
+    public void updateContactInfo(String newPhone, String newAddress) {
+        this.phoneNumber = newPhone;
+        this.address = newAddress;
+    }
+
+    public boolean hasValidPhoneNumber() {
+        return phoneNumber != null && phoneNumber.length() >= 6;
+    }
+
     public long getId() {
         return id;
     }
@@ -52,4 +61,9 @@ public class Owner2 {
                 ", address='" + address + '\'' +
                 '}';
     }
-}
+
+    public Owner2(int i, String temirlan, String number, String expo) {
+
+    }
+    }
+
