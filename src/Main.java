@@ -67,7 +67,7 @@ public class Main {
     // ---------------- ADD / VIEW METHODS ----------------
 
     private static void addOwner() {
-        System.out.print("Enter ID: ");
+        System.out.print("Enter your ID: ");
         long id = scanner.nextLong();
         scanner.nextLine();
 
@@ -81,12 +81,12 @@ public class Main {
         String address = scanner.nextLine();
 
         owners.add(new Owner(id, name, phone, address));
-        System.out.println("Owner added ✅");
+        System.out.println("You have been successfully added as an owner ✅");
     }
 
     private static void viewOwners() {
         if (owners.isEmpty()) {
-            System.out.println("No owners found");
+            System.out.println("Oops , no owners found");
             return;
         }
         owners.forEach(System.out::println);
@@ -110,12 +110,12 @@ public class Main {
         String symptom = scanner.nextLine();
 
         pets.add(new Pet(nick, age, type, sex, symptom));
-        System.out.println("Pet added ✅");
+        System.out.println("Your pet has been added ✅");
     }
 
     private static void viewPets() {
         if (pets.isEmpty()) {
-            System.out.println("No pets found");
+            System.out.println("Sorry , no pets found");
             return;
         }
         pets.forEach(System.out::println);
@@ -138,7 +138,7 @@ public class Main {
 
     private static void viewVeterinarians() {
         if (veterinarians.isEmpty()) {
-            System.out.println("No vets found");
+            System.out.println("Unfortunately , no veterinarians found");
             return;
         }
         veterinarians.forEach(System.out::println);
