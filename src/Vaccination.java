@@ -1,10 +1,10 @@
-public class Vaccination2 {
+public class Vaccination {
     private String vaccineName;
     private String disease;
     private int vaccinationYear;
     private int validUntilYear;
 
-    public Vaccination2(String vaccineName, String disease, int vaccinationYear, int validUntilYear) {
+    public Vaccination(String vaccineName, String disease, int vaccinationYear, int validUntilYear) {
         this.vaccineName = vaccineName;
         this.disease = disease;
         this.vaccinationYear = vaccinationYear;
@@ -13,14 +13,6 @@ public class Vaccination2 {
 
     public String getVaccineName() {
         return vaccineName;
-    }
-
-    public boolean isExpired(int currentYear) {
-        return currentYear > validUntilYear;
-    }
-
-    public int getValidityPeriod() {
-        return validUntilYear - vaccinationYear;
     }
 
     public void setVaccineName(String vaccineName) {
@@ -53,11 +45,11 @@ public class Vaccination2 {
 
     @Override
     public String toString() {
-        return "Vaccination2{" +
-                "vaccineName='" + vaccineName + '\'' +
-                ", disease='" + disease + '\'' +
-                ", vaccinationYear=" + vaccinationYear +
-                ", validUntilYear=" + validUntilYear +
+        return "Vaccination : " +
+                "vaccineName = '" + vaccineName + '\'' +
+                ", disease = '" + disease + '\'' +
+                ", vaccinationYear = " + vaccinationYear +
+                ", validUntilYear = " + validUntilYear +
                 '}';
     }
 }

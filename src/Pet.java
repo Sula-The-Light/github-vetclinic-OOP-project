@@ -1,11 +1,11 @@
-public class Pet2 {
+public class Pet {
     private String nickname;
     private int age;
     private String type;
     private String sex;
     private String symptom;
 
-    public Pet2(String nickname, int age, String type, String sex, String symptom) {
+    public Pet(String nickname, int age, String type, String sex, String symptom) {
         this.nickname = nickname;
         this.age = age;
         this.type = type;
@@ -15,14 +15,6 @@ public class Pet2 {
 
     public String getNickname() {
         return nickname;
-    }
-
-    public boolean isAdult() {
-        return age >= 1;
-    }
-
-    public void changeSymptom(String newSymptom) {
-        this.symptom = newSymptom;
     }
 
     public void setNickname(String nickname) {
@@ -63,13 +55,12 @@ public class Pet2 {
 
     @Override
     public String toString() {
-        return "Pet2{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", type='" + type + '\'' +
-                ", sex='" + sex + '\'' +
-                ", symptom='" + symptom + '\'' +
+        return "Pet{" +
+                "nickname = '" + nickname + '\'' +
+                ", age = " + age +
+                ", type = '" + type + '\'' +
+                ", sex = '" + sex + '\'' +
+                ", symptom = '" + symptom + '\'' +
                 '}';
     }
 }
-

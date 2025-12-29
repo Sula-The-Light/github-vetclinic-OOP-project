@@ -1,22 +1,14 @@
-public class Treatment2 {
+public class Treatment {
     private String name;
     private double price;
     private int expiryDate;
     private boolean prescriptionRequired;
 
-    public Treatment2(String name, double price, int expiryDate, boolean prescriptionRequired) {
+    public Treatment(String name, double price, int expiryDate) {
         this.name = name;
         this.price = price;
         this.expiryDate = expiryDate;
         this.prescriptionRequired = prescriptionRequired;
-    }
-
-    public boolean isExpired(int currentYear) {
-        return currentYear > expiryDate;
-    }
-
-    public void increasePrice(double amount) {
-        this.price += amount;
     }
 
     public String getName() {
@@ -53,15 +45,14 @@ public class Treatment2 {
 
     @Override
     public String toString() {
-        return "Treatment2{" +
+        return "Treatment{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", expiryDate=" + expiryDate +
                 ", prescriptionRequired=" + prescriptionRequired +
                 '}';
     }
+}
 
-    public Treatment2(String paracetamol, int i, int i1) {
-            }
-    }
+
 

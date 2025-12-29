@@ -1,6 +1,6 @@
 public class Appointment {
-    private Pet2 pet;
-    private Veterenarian2 veterenarian;
+    private Pet pet;
+    private Veterinarian veterenarian;
     private boolean confirmed;
     private String date;
 
@@ -13,19 +13,19 @@ public class Appointment {
         return confirmed ? "Confirmed" : "Not confirmed";
     }
 
-    public Pet2 getPet() {
+    public Pet getPet() {
         return pet;
     }
 
-    public void setPet(Pet2 pet) {
+    public void setPet(Pet pet) {
         this.pet = pet;
     }
 
-    public Veterenarian2 getVeterenarian() {
+    public Veterinarian getVeterenarian() {
         return veterenarian;
     }
 
-    public void setVeterenarian(Veterenarian2 veterenarian) {
+    public void setVeterenarian(Veterinarian veterenarian) {
         this.veterenarian = veterenarian;
     }
 
@@ -45,18 +45,21 @@ public class Appointment {
         this.date = date;
     }
 
-    public Appointment(Pet2 pet1, Veterenarian2 vet, boolean b, String owaGr) {
-
-
+    public Appointment(Pet pet, Veterinarian veterenarian, boolean confirmed, String date) {
+        this.pet = pet;
+        this.veterenarian = veterenarian;
+        this.confirmed = confirmed;
+        this.date = date;
     }
+
 
     @Override
     public String toString() {
-        return "Appointment{" +
-                "pet=" + pet +
-                ", veterenarian=" + veterenarian +
-                ", confirmed=" + confirmed +
-                ", date='" + date + '\'' +
+        return "Appointment {" +
+                "pet = " + pet +
+                ", veterenarian = " + veterenarian +
+                ", confirmed = " + confirmed +
+                ", date = '" + date + '\'' +
                 '}';
     }
 }
