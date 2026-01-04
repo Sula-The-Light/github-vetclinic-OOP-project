@@ -55,7 +55,7 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Appointment {" +
+        return "Appointment : " +
                 "pet = " + pet +
                 ", veterenarian = " + veterenarian +
                 ", confirmed = " + confirmed +

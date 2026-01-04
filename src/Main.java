@@ -12,7 +12,7 @@ public class Main {
 
         // TEST DATA
         owners.add(new Owner(1955695865,  "Yesmagzam Sultan Talgatuly",  "+77057839267", "Mangilik ek avenue , C1"));
-        pets.add(new Pet("Ross", 3, "dog", "male", "temperature"));
+        pets.add(new Pet("Ross", 3, "dog" ,  "male" , "temperature"));
         veterinarians.add(new Veterinarian("Yesmagzam Rauan Talgatuly", "+77024739238", 10));
 
         boolean running = true;
@@ -109,7 +109,7 @@ public class Main {
         System.out.print("Your pet's symptom: ");
         String symptom = scanner.nextLine();
 
-        pets.add(new Pet(nick, age, type, sex, symptom));
+        pets.add(new Pet(nick, age, type, sex , symptom));
         System.out.println("Your pet has been added ✅");
     }
 
@@ -145,15 +145,35 @@ public class Main {
     }
 
     private static void addVetOrder() {
+
         if (owners.isEmpty() || pets.isEmpty() || veterinarians.isEmpty()) {
             System.out.println("Not enough data to create order ❌");
             return;
         }
 
+        System.out.println("Choose owner:");
+        for (int i = 0; i < owners.size(); i++) {
+            System.out.println(i + ". " + owners.get(i));
+        }
+        int ownerIndex = scanner.nextInt();
+
+        System.out.println("Choose pet:");
+        for (int i = 0; i < pets.size(); i++) {
+            System.out.println(i + ". " + pets.get(i));
+        }
+        int petIndex = scanner.nextInt();
+
+        System.out.println("Choose veterinarian:");
+        for (int i = 0; i < veterinarians.size(); i++) {
+            System.out.println(i + ". " + veterinarians.get(i));
+        }
+        int vetIndex = scanner.nextInt();
+        scanner.nextLine();
+
         Order order = new Order(
-                owners.get(0),
-                pets.get(0),
-                veterinarians.get(0),
+                owners.get(ownerIndex),
+                pets.get(petIndex),
+                veterinarians.get(vetIndex),
                 null
         );
 

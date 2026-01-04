@@ -5,7 +5,7 @@ public class Pet {
     private String sex;
     private String symptom;
 
-    public Pet(String nickname, int age, String type, String sex, String symptom) {
+    public Pet(String nickname, int age, String type , String sex , String symptom) {
         this.nickname = nickname;
         this.age = age;
         this.type = type;
@@ -55,7 +55,7 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
+        return "Pet : " +
                 "nickname = '" + nickname + '\'' +
                 ", age = " + age +
                 ", type = '" + type + '\'' +
