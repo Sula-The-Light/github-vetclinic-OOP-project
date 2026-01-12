@@ -16,7 +16,7 @@ public class Owner {
     }
 
     public void setName(String name) {
-        if (name != null && !name.isBlank()) {
+        if (name != null && !name.isEmpty()) {
             this.name = name;
         } else {
             this.name = "Unknown";

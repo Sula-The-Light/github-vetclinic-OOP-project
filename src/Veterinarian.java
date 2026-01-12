@@ -1,12 +1,12 @@
 public class Veterinarian {
     private String name;
     private String phoneNumber;
-    private int experienceYears;
+    private int expYears;
 
-    public Veterinarian(String name, String phoneNumber, int experienceYears) {
+    public Veterinarian(String name, String phoneNumber, int expYears) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.experienceYears = experienceYears;
+        this.expYears = expYears;
     }
 
     public String getName() {
@@ -14,9 +14,10 @@ public class Veterinarian {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.isBlank()) {
+            this.name = name;
+        }
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -26,19 +27,20 @@ public class Veterinarian {
     }
 
     public int getExperienceYears() {
-        return experienceYears;
+        return expYears;
     }
 
-    public void setExperienceYears(int experienceYears) {
-        this.experienceYears = experienceYears;
+    public void setExperienceYears(int expYears) {
+        if (expYears > 0) {
+            this.expYears = expYears;
+        }
     }
-
     @Override
     public String toString() {
         return "Veterinarian : " +
                 "name = '" + name + '\'' +
                 ", phoneNumber = '" + phoneNumber + '\'' +
-                ", experienceYears = " + experienceYears +
+                ", experienceYears = " + expYears +
                 '}';
     }
 }

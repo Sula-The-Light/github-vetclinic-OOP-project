@@ -1,14 +1,14 @@
 public class Pet {
     private String nickname;
     private int age;
-    private String type;
+    private String breed;
     private String sex;
     private String symptom;
 
-    public Pet(String nickname, int age, String type , String sex , String symptom) {
-        this.nickname = nickname;
-        this.age = age;
-        this.type = type;
+    public Pet(String nickname, int age, String breed , String sex , String symptom) {
+        setNickname(nickname);
+        setAge(age);
+        this.breed = breed;
         this.sex = sex;
         this.symptom = symptom;
     }
@@ -18,23 +18,25 @@ public class Pet {
     }
 
     public void setNickname(String nickname) {
-        this.nickname = nickname;
+        if (nickname != null && !nickname.isBlank()) {
+            this.nickname = nickname;
+        }
     }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0) {
+            this.age = age;
+        }
+    }
+    public String getBreed() {
+        return breed;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 
     public String getSex() {
@@ -58,7 +60,7 @@ public class Pet {
         return "Pet : " +
                 "nickname = '" + nickname + '\'' +
                 ", age = " + age +
-                ", type = '" + type + '\'' +
+                ", type = '" + breed + '\'' +
                 ", sex = '" + sex + '\'' +
                 ", symptom = '" + symptom + '\'' +
                 '}';
