@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Main {
+public class Main implements List{
     private static ArrayList<Owner> owners = new ArrayList<>();
     private static ArrayList<Pet> pets = new ArrayList<>();
     private static ArrayList<Veterinarian> veterinarians = new ArrayList<>();
@@ -10,23 +10,12 @@ public class Main {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
 
         // TEST DATA
         owners.add(new Owner("Yesmagzam Sultan Talgatuly", "+77057839267"));
-        pets.add(new Cat("Tom", 2) {
-            @Override
-            public String getType() {
-                return "Cat";
-            }
-        });
-        pets.add(new Dog("Ross", 3) {
-            @Override
-            public String getType() {
-                return "Dog";
-            }
-        });
-
+        pets.add(new Cat("Tom", 2));
+        pets.add(new Dog("Ross", 3));
         veterinarians.add(new Veterinarian("Yesmagzam Rauan Talgatuly",  10));
         treatments.add(new Treatment("Antibiotics", 5000.0));
         treatments.add(new Treatment("Vitamins", 2500.0));
@@ -34,7 +23,7 @@ public class Main {
 
         boolean running = true;
         while (running) {
-            displayMenu();
+            displayList();
             int choice = readInt("Choose option: ");
             switch (choice) {
                 case 1 -> addOwner();
@@ -59,7 +48,7 @@ public class Main {
         }
         scanner.close();
     }
-    private static void displayMenu() {
+    public void displayList() {
         System.out.println("""
                 🐾 VET CLINIC SYSTEM 🐾
                 1. Add Owner👤
@@ -74,6 +63,8 @@ public class Main {
                 0. Exit
                 """);
     }
+
+
     // ---------------- ADD / VIEW METHODS ----------------
     private static void addOwner() {
         String name = readNonEmptyString("Enter name: ");
