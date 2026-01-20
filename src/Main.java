@@ -5,15 +5,32 @@ public class Main {
     private static ArrayList<Pet> pets = new ArrayList<>();
     private static ArrayList<Veterinarian> veterinarians = new ArrayList<>();
     private static ArrayList<Order> vetOrders = new ArrayList<>();
+    private static ArrayList<Treatment> treatments = new ArrayList<>();
+
 
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         // TEST DATA
-        owners.add(new Owner(1955695865, "Yesmagzam Sultan Talgatuly", "+77057839267", "Mangilik el avenue, C1"));
-        pets.add(new Pet("Ross", 3, "dog", "male", "temperature"));
-        veterinarians.add(new Veterinarian("Yesmagzam Rauan Talgatuly", "+77024739238", 10));
+        owners.add(new Owner("Yesmagzam Sultan Talgatuly", "+77057839267"));
+        pets.add(new Cat("Tom", 2) {
+            @Override
+            public String getType() {
+                return "Cat";
+            }
+        });
+        pets.add(new Dog("Ross", 3) {
+            @Override
+            public String getType() {
+                return "Dog";
+            }
+        });
+
+        veterinarians.add(new Veterinarian("Yesmagzam Rauan Talgatuly",  10));
+        treatments.add(new Treatment("Antibiotics", 5000.0));
+        treatments.add(new Treatment("Vitamins", 2500.0));
+        treatments.add(new Treatment("Painkillers", 3500.0));
 
         boolean running = true;
         while (running) {
@@ -26,8 +43,9 @@ public class Main {
                 case 4 -> viewPets();
                 case 5 -> addVeterinarian();
                 case 6 -> viewVeterinarians();
-                case 7 -> addVetOrder();
-                case 8 -> viewVetOrders();
+                case 7 -> viewTreatments();
+                case 8 -> addVetOrder();
+                case 9 -> viewVetOrders();
                 case 0 -> {
                     System.out.println("Goodbye 👋");
                     running = false;
@@ -44,25 +62,23 @@ public class Main {
     private static void displayMenu() {
         System.out.println("""
                 🐾 VET CLINIC SYSTEM 🐾
-                1. Add Owner
-                2. View Owners
-                3. Add Pet
-                4. View Pets
-                5. Add Veterinarian
-                6. View Veterinarians
-                7. Create Vet Order
-                8. View Vet Orders
+                1. Add Owner👤
+                2. View Owners📋
+                3. Add Pet🐾
+                4. View Pets🐶
+                5. Add Veterinarian🩺
+                6. View Veterinarians👨‍⚕️
+                7. View Treatments💉
+                8. Create Vet Order📝
+                9. View Vet Orders📂
                 0. Exit
                 """);
     }
     // ---------------- ADD / VIEW METHODS ----------------
     private static void addOwner() {
-        long id = readLong("Enter ID: ");
         String name = readNonEmptyString("Enter name: ");
-        String phone = readNonEmptyString("Enter phone: ");
-        String address = readNonEmptyString("Enter address: ");
-
-        owners.add(new Owner(id, name, phone, address));
+        String phonenumber = readNonEmptyString("Enter phone: ");
+        owners.add(new Owner(name , phonenumber));
         System.out.println("Owner added successfully ✅");
     }
     private static void viewOwners() {
@@ -79,10 +95,12 @@ public class Main {
             System.out.println("Age cannot be negative ❌");
             age = readInt("Your pet's age: ");
         }
-        String type = readNonEmptyString("Type of pet: ");
-        String sex = readNonEmptyString("Sex: ");
-        String symptom = readNonEmptyString("Symptom: ");
-        pets.add(new Pet(nick, age, type, sex, symptom));
+        pets.add(new Pet(nick, age) {
+            @Override
+            public String getType() {
+                return "";
+            }
+        });
         System.out.println("Pet added successfully ✅");
     }
     private static void viewPets() {
@@ -93,23 +111,36 @@ public class Main {
         pets.forEach(System.out::println);
     }
     private static void addVeterinarian() {
-        String name = readNonEmptyString("Name: ");
-        String phone = readNonEmptyString("Phone number: ");
+        String fullname = readNonEmptyString("Name: ");
         int exp = readInt("Experience years: ");
         while (exp < 0) {
             System.out.println("Invalid data ❌");
             exp = readInt("Experience years: ");
         }
-        veterinarians.add(new Veterinarian(name, phone, exp));
+        veterinarians.add(new Veterinarian(fullname, exp));
         System.out.println("Veterinarian added ✅");
     }
     private static void viewVeterinarians() {
         if (veterinarians.isEmpty()) {
-            System.out.println("No veterinarians found");
+            System.out.println("No veterinarians found ❌");
             return;
         }
         veterinarians.forEach(System.out::println);
     }
+    private static void viewTreatments() {
+        if (treatments.isEmpty()) {
+            System.out.println("No treatments available ❌");
+            return;
+        }
+
+        int index = chooseFromList("Choose treatment:", treatments);
+        Treatment selectedTreatment = treatments.get(index);
+
+        System.out.println("Selected treatment:");
+        System.out.println(selectedTreatment);
+        System.out.println("Price: " + selectedTreatment.getPrice());
+    }
+
 
     private static void addVetOrder() {
         if (owners.isEmpty() || pets.isEmpty() || veterinarians.isEmpty()) {
@@ -119,13 +150,18 @@ public class Main {
         int ownerIndex = chooseFromList("Choose owner:", owners);
         int petIndex = chooseFromList("Choose pet:", pets);
         int vetIndex = chooseFromList("Choose veterinarian:", veterinarians);
-        String treatment = readNonEmptyString("Enter treatment: ");
+        int treatindex = chooseFromList("Choose treatment:", treatments);
+        Treatment selectedTreatment = treatments.get(treatindex);
+
+        System.out.println("Selected treatment:");
+        System.out.println(selectedTreatment);
+        System.out.println("Price: " + selectedTreatment.getPrice());
 
         Order order = new Order(
                 owners.get(ownerIndex),
                 pets.get(petIndex),
                 veterinarians.get(vetIndex),
-                treatment
+                treatments.get(treatindex)
         );
         vetOrders.add(order);
         System.out.println("Vet order created ✅");

@@ -1,46 +1,20 @@
 public class Veterinarian {
-    private String name;
-    private String phoneNumber;
-    private int expYears;
+    private String fullname;
+    private int experience;
 
-    public Veterinarian(String name, String phoneNumber, int expYears) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.expYears = expYears;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        if (name != null && !name.isBlank()) {
-            this.name = name;
+    public Veterinarian(String fullname, int experience) {
+        if (fullname == null || fullname.isBlank()) {
+            throw new IllegalArgumentException("Vet name required");
         }
-    }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public int getExperienceYears() {
-        return expYears;
-    }
-
-    public void setExperienceYears(int expYears) {
-        if (expYears > 0) {
-            this.expYears = expYears;
+        if (experience < 0) {
+            throw new IllegalArgumentException("Experience cannot be negative");
         }
+        this.fullname = fullname;
+        this.experience = experience;
     }
+
     @Override
     public String toString() {
-        return "Veterinarian : " +
-                "name = '" + name + '\'' +
-                ", phoneNumber = '" + phoneNumber + '\'' +
-                ", experienceYears = " + expYears +
-                '}';
+        return "Veterinarian : " + fullname + " (" + experience + " years)";
     }
 }
