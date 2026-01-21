@@ -1,3 +1,5 @@
+package Model;
+
 public class Treatment {
     private String title;
     private double price;
@@ -10,7 +12,7 @@ public class Treatment {
     }
     public void setTitle(String title) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Treatment name required");
+            throw new IllegalArgumentException("Model.Treatment name required");
         }
         this.title = title;
     }
