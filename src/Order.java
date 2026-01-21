@@ -10,7 +10,6 @@ public class Order {
         this.veterinarian = veterinarian;
         this.treatment = treatment;
     }
-
     @Override
     public String toString() {
         return "Owner: %s | Pet: %s | Vet: %s | Treatment: %s".formatted(

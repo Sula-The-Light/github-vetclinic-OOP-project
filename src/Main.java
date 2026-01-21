@@ -1,17 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-public class Main implements List{
+public class Main implements Menu {
     private static ArrayList<Owner> owners = new ArrayList<>();
     private static ArrayList<Pet> pets = new ArrayList<>();
     private static ArrayList<Veterinarian> veterinarians = new ArrayList<>();
     private static ArrayList<Order> vetOrders = new ArrayList<>();
     private static ArrayList<Treatment> treatments = new ArrayList<>();
-
-
     private static Scanner scanner = new Scanner(System.in);
-
     public void main(String[] args) {
-
         // TEST DATA
         owners.add(new Owner("Yesmagzam Sultan Talgatuly", "+77057839267"));
         pets.add(new Cat("Tom", 2));
@@ -20,10 +16,9 @@ public class Main implements List{
         treatments.add(new Treatment("Antibiotics", 5000.0));
         treatments.add(new Treatment("Vitamins", 2500.0));
         treatments.add(new Treatment("Painkillers", 3500.0));
-
         boolean running = true;
         while (running) {
-            displayList();
+            displayMenu();
             int choice = readInt("Choose option: ");
             switch (choice) {
                 case 1 -> addOwner();
@@ -48,7 +43,7 @@ public class Main implements List{
         }
         scanner.close();
     }
-    public void displayList() {
+    public void displayMenu() {
         System.out.println("""
                 🐾 VET CLINIC SYSTEM 🐾
                 1. Add Owner👤
@@ -63,15 +58,18 @@ public class Main implements List{
                 0. Exit
                 """);
     }
-
-
     // ---------------- ADD / VIEW METHODS ----------------
     private static void addOwner() {
-        String name = readNonEmptyString("Enter name: ");
-        String phonenumber = readNonEmptyString("Enter phone: ");
-        owners.add(new Owner(name , phonenumber));
-        System.out.println("Owner added successfully ✅");
+        try {
+            String name = readNonEmptyString("Enter name: ");
+            String phone = readNonEmptyString("Enter phone: ");
+            owners.add(new Owner(name, phone));
+            System.out.println("Owner added successfully ✅");
+        } catch (IllegalArgumentException d) {
+            System.out.println(d.getMessage() + " ❌");
+        }
     }
+
     private static void viewOwners() {
         if (owners.isEmpty()) {
             System.out.println("No owners found");
@@ -80,19 +78,26 @@ public class Main implements List{
         owners.forEach(System.out::println);
     }
     private static void addPet() {
-        String nick = readNonEmptyString("Pet nickname: ");
-        int age = readInt("Your pet's age: ");
-        while (age < 0) {
-            System.out.println("Age cannot be negative ❌");
-            age = readInt("Your pet's age: ");
-        }
-        pets.add(new Pet(nick, age) {
-            @Override
-            public String getType() {
-                return "";
+        try {
+            String nick = readNonEmptyString("Pet nickname: ");
+            int age = readInt("Pet age: ");
+            String type = readNonEmptyString("Type (cat/dog): ").toLowerCase();
+
+            Pet pet;
+            if (type.equals("cat")) {
+                pet = new Cat(nick, age);
+            } else if (type.equals("dog")) {
+                pet = new Dog(nick, age);
+            } else {
+                System.out.println("Unknown pet type ❌");
+                return;
             }
-        });
-        System.out.println("Pet added successfully ✅");
+            pets.add(pet);
+            System.out.println("Pet added successfully ✅");
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage() + " ❌");
+        }
     }
     private static void viewPets() {
         if (pets.isEmpty()) {
@@ -102,14 +107,14 @@ public class Main implements List{
         pets.forEach(System.out::println);
     }
     private static void addVeterinarian() {
-        String fullname = readNonEmptyString("Name: ");
-        int exp = readInt("Experience years: ");
-        while (exp < 0) {
-            System.out.println("Invalid data ❌");
-            exp = readInt("Experience years: ");
+        try {
+            String fullname = readNonEmptyString("Name: ");
+            int exp = readInt("Experience years: ");
+            veterinarians.add(new Veterinarian(fullname, exp));
+            System.out.println("Veterinarian added ✅");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage() + " ❌");
         }
-        veterinarians.add(new Veterinarian(fullname, exp));
-        System.out.println("Veterinarian added ✅");
     }
     private static void viewVeterinarians() {
         if (veterinarians.isEmpty()) {

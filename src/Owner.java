@@ -14,6 +14,8 @@ public class Owner {
     }
     @Override
     public String toString() {
-        return "Owner: " + name + " , " + "Phone number: " + phonenumber ;
+        return "Owner : " +
+                "name = " + name +
+                ", phonenumber = " + phonenumber;
     }
 }
