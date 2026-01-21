@@ -1,5 +1,4 @@
 package Model;
-
 public class Treatment {
     private String title;
     private double price;

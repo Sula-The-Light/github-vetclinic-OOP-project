@@ -1,5 +1,5 @@
 package list;
 public interface List {
-      void displayMenu();
+      void displayList();
       void run();
     }

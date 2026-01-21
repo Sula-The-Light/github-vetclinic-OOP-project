@@ -21,7 +21,7 @@ public class NewMain implements List {
         treatments.add(new Treatment("Painkillers", 3500.0));
         boolean running = true;
         while (running) {
-            displayMenu();
+            displayList();
             int choice = readInt("Choose option: ");
             switch (choice) {
                 case 1 -> addOwner();
@@ -45,7 +45,7 @@ public class NewMain implements List {
             }
         }
     }
-    public void displayMenu() {
+    public void displayList() {
         System.out.println("""
                 🐾 VET CLINIC SYSTEM 🐾
                 1. Add Owner👤
@@ -60,7 +60,6 @@ public class NewMain implements List {
                 0. Exit
                 """);
     }
-
     // ---------------- ADD / VIEW METHODS ----------------
     private static void addOwner() {
         try {
@@ -72,10 +71,9 @@ public class NewMain implements List {
             System.out.println(d.getMessage() + " ❌");
         }
     }
-
     private static void viewOwners() {
         if (owners.isEmpty()) {
-            System.out.println("No owners found");
+            System.out.println("No owners found ❌");
             return;
         }
         owners.forEach(System.out::println);
@@ -103,7 +101,7 @@ public class NewMain implements List {
     }
     private static void viewPets() {
         if (pets.isEmpty()) {
-            System.out.println("No pets found");
+            System.out.println("No pets found ❌");
             return;
         }
         pets.forEach(System.out::println);
@@ -162,7 +160,7 @@ public class NewMain implements List {
     }
     private static void viewVetOrders() {
         if (vetOrders.isEmpty()) {
-            System.out.println("No orders found");
+            System.out.println("No orders found ❌");
             return;
         }
         vetOrders.forEach(System.out::println);
