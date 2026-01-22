@@ -11,38 +11,22 @@ public class NewMain implements List {
     private static Scanner scanner = new Scanner(System.in);
     @Override
     public void run() {
-        // TEST DATA
-        owners.add(new Owner("Yesmagzam Sultan Talgatuly", "+77057839267"));
-        pets.add(new Cat("Tom", 2));
-        pets.add(new Dog("Ross", 3));
-        veterinarians.add(new Veterinarian("Yesmagzam Rauan Talgatuly",  10));
-        treatments.add(new Treatment("Antibiotics", 5000.0));
-        treatments.add(new Treatment("Vitamins", 2500.0));
-        treatments.add(new Treatment("Painkillers", 3500.0));
         boolean running = true;
-        while (running) {
-            displayList();
-            int choice = readInt("Choose option: ");
-            switch (choice) {
-                case 1 -> addOwner();
-                case 2 -> viewOwners();
-                case 3 -> addPet();
-                case 4 -> viewPets();
-                case 5 -> addVeterinarian();
-                case 6 -> viewVeterinarians();
-                case 7 -> viewTreatments();
-                case 8 -> addVetOrder();
-                case 9 -> viewVetOrders();
-                case 0 -> {
-                    System.out.println("Goodbye 👋");
-                    running = false;
-                }
-                default -> System.out.println("Invalid choice ❌");
-            }
-            if (running) {
-                System.out.println("\nPress Enter to continue...");
-                scanner.nextLine();
-            }
+        switch (running) {
+            case 1: AddOwner() ; break;
+            case 2: ViewOwners() ; break;
+            case 3: AddPet() ; break;
+            case 4: ViewPets() ; break;
+            case 5: AddVeterenerian() ; break;
+            case 6: ViewVeterenarians() ; break;
+            case 7: Viewtreatments() ; break;
+            case 8: CreateVetOrder() ; break;
+            case 9: ViewvVetOrders() ; break;
+            case 0: Exit() ; break;
+        }
+
+        if (running == false){
+            System.out.println("Goodbye");
         }
     }
     public void displayList() {
