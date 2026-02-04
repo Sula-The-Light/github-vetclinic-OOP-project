@@ -19,4 +19,19 @@ public class Order {
                 treatment
         );
     }
+    public double getTotalPrice() {
+        return 0;
+    }
+    public Owner getOwner() {
+        return owner;
+    }
+    public Pet getPet() {
+        return pet;
+    }
+    public Veterinarian getVeterinarian() {
+        return veterinarian;
+    }
+    public Treatment getTreatment() {
+        return treatment;
+    }
 }

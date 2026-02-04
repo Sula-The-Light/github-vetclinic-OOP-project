@@ -6,6 +6,12 @@ public class Veterinarian {
         this.fullname = fullname;
         this.experience = experience;
     }
+    public String getFullname() {
+        return fullname;
+    }
+    public int getExperience() {
+        return experience;
+    }
     public void setFullname(String fullname) {
         if (fullname == null || fullname.isBlank()) {
             throw new IllegalArgumentException("Vet name required");
